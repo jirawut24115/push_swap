@@ -1,62 +1,55 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jchompoo <jchompoo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/11 10:41:55 by jchompoo          #+#    #+#             */
+/*   Updated: 2023/02/11 14:54:51 by jchompoo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
+
+void	print_stacks(Stacks *stack_a, Stacks *stack_b);
 
 int	main(void)
 {
-	Stacks *stack_a;
-
-	stack_a = create_stack(5);
-	if(stack_a)
+	frame *f;
+	f->stack_a = create_stack(10);
+	f->stack_b = create_stack(10);
+	if(f->stack_a == NULL || f->stack_b == NULL)
 	{
-		printf("Stack created\n");
-		printf("Stack size is %d\n", stack_a->size);
-		printf("Stack capacity is %d\n", stack_a->capacity);
+		printf("Error creating stacks\n");
+		return (1);
 	}
+	if (is_empty(f->stack_a) && (is_empty(f->stack_b))) printf("Both stack is empty\n");
+	for (int i = 0; i < 5; i++)
+		{
+			push(f->stack_a, i);
+			push(f->stack_b, i);
+			printf("push %d to both stack\n", i);
+		}
 
-	destroy_stack(stack_a);
-	if(!stack_a) printf("Stack destroyed\n");
+	// int *pop_val;
+	// pop(f->stack_b, pop_val);
+	print_stacks(f->stack_a, f->stack_b);
+	swap_s(f);
+	print_stacks(f->stack_a, f->stack_b);
+	destroy_stack(f);
 	return 0;
 }
 
-Stacks	*create_stack(int capacity)
+void	print_stacks(Stacks *stack_a, Stacks *stack_b)
 {
-	if (capacity <= 0)
-		return (NULL);
-	Stacks *stack = malloc(sizeof(Stacks));
-	if (!stack) return NULL;
+	int i = stack_a->size - 1;
+	//int j = stack_b->size - 1;
 
-	stack->collection = malloc(sizeof(int) * capacity);
-	if(!stack->collection)
+	while (i >= 0)
 	{
-		free(stack);
-		return NULL;
+		printf("%d %d\n", stack_a->collection[i], stack_b->collection[i]);
+		i--; 
 	}
-
-	stack->capacity = capacity;
-	stack->size = 0;
-
-	return stack;
-}
-
-void	destroy_stack(Stacks *stack)
-{
-	free(stack->collection);
-	free(stack);
-}
-
-bool	is_full(Stacks *stack)
-{
-	return stack->capacity == stack->size;
-}
-
-bool	is_empty(Stacks *stack)
-{
-	return stack->size == 0;
-}
-
-bool	pop(Stacks *stack, int *item)
-{
-	
+	printf("_ _\na b\n");
 }
