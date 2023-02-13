@@ -6,7 +6,7 @@
 /*   By: jchompoo <jchompoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 10:41:55 by jchompoo          #+#    #+#             */
-/*   Updated: 2023/02/11 14:54:51 by jchompoo         ###   ########.fr       */
+/*   Updated: 2023/02/13 21:28:35 by jchompoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_stacks(Stacks *stack_a, Stacks *stack_b);
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	frame *f;
 	f->stack_a = create_stack(10);
@@ -35,7 +35,13 @@ int	main(void)
 	// int *pop_val;
 	// pop(f->stack_b, pop_val);
 	print_stacks(f->stack_a, f->stack_b);
-	swap_s(f);
+	reverse_rotate_r(f);
+	print_stacks(f->stack_a, f->stack_b);
+	reverse_rotate_r(f);
+	print_stacks(f->stack_a, f->stack_b);
+	rotate_r(f);
+	print_stacks(f->stack_a, f->stack_b);
+	rotate_r(f);
 	print_stacks(f->stack_a, f->stack_b);
 	destroy_stack(f);
 	return 0;
@@ -44,12 +50,23 @@ int	main(void)
 void	print_stacks(Stacks *stack_a, Stacks *stack_b)
 {
 	int i = stack_a->size - 1;
-	//int j = stack_b->size - 1;
+	int j = stack_b->size - 1;
 
+	while (i > j)
+	{
+		printf("%d\n", stack_a->collection[i]);
+		i--;
+	}
+	while (j > i)
+	{
+		printf("  %d\n", stack_b->collection[j]);
+		j--;
+	}
 	while (i >= 0)
 	{
-		printf("%d %d\n", stack_a->collection[i], stack_b->collection[i]);
-		i--; 
+		printf("%d %d\n", stack_a->collection[i], stack_b->collection[j]);
+		i--;
+		j--;
 	}
 	printf("_ _\na b\n");
 }
