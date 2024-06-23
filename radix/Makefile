@@ -6,7 +6,7 @@
 #    By: jichompo <jichompo@>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/23 22:15:15 by jchompoo          #+#    #+#              #
-#    Updated: 2024/06/23 23:24:01 by jichompo         ###   ########.fr        #
+#    Updated: 2024/06/23 23:48:33 by jichompo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ HEADERS = -I$(INC_DIR) -I$(LIBFT_DIR)/includes
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS)
+	$(CC) $(CFLAGS) $(OBJS) $(HEADERS) $(LIBS) -o $(NAME)
 
-$(OBJS) : $(SRCS)
+$(OBJS) : %.o: %.c
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 $(LIBFT):
