@@ -14,12 +14,14 @@
 
 static int	check_string(char *str)
 {
+	if (*str == '-' || *str == '+')
+		str++;
 	while (*str)
 	{
 		if (!ft_isdigit(*str) && *str != ' ' && *str != '-' && *str != '+')
 			return (-1);
 		if ((*str == '-' || *str == '+')
-			&& (!ft_isdigit(*(str + 1)) || (*(str - 1) && *(str - 1) != 32)))
+			&& (!ft_isdigit(*(str + 1)) || *(str - 1) != 32))
 			return (-1);
 		str++;
 	}
@@ -67,6 +69,16 @@ static void	refine_stack(t_stack *stack)
 	reassign(stack, temp);
 }
 
+int	check_overflow(char *str)
+{
+	int	error;
+
+	error = 0;
+	if (ft_strlen(str) > 11)
+		
+	return (error);
+}
+
 static t_stack	*init_stack(char **argv)
 {
 	int		index;
@@ -81,7 +93,7 @@ static t_stack	*init_stack(char **argv)
 	index = 0;
 	while (index < stack->size_a && argv[index])
 	{
-		if (ft_strlen(argv[index]) > 11)
+		if (check_overflow(argv[index]))
 			return (free_stack(stack), NULL);
 		stack->stack_a[index] = ft_atol(argv[index], &error);
 		index++;

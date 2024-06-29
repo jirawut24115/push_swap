@@ -16,7 +16,7 @@ t_stack	*start_stack(int index)
 {
 	t_stack	*stack;
 
-	stack = malloc(sizeof(stack));
+	stack = malloc(sizeof(t_stack));
 	stack->size_a = index;
 	stack->size_b = 0;
 	stack->stack_a = (int *)malloc(sizeof(int) * stack->size_a);
