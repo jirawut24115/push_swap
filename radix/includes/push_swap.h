@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jichompo <jichompo@>                       +#+  +:+       +#+        */
+/*   By: jchompoo <jchompoo@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 12:06:58 by jichompo          #+#    #+#             */
-/*   Updated: 2024/06/23 22:06:28 by jichompo         ###   ########.fr       */
+/*   Updated: 2024/06/29 23:59:48 by jchompoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	free_stack(t_stack *stack);
 //parser
 t_stack	*create_stack(int argc, char **argv);
 t_stack	*start_stack(int index);
+int		check_overflow(char *str);
 
 //operations
 void	sa(t_stack *stack);

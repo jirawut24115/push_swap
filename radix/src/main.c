@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jichompo <jichompo@>                       +#+  +:+       +#+        */
+/*   By: jchompoo <jchompoo@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 12:05:35 by jichompo          #+#    #+#             */
-/*   Updated: 2024/06/23 22:52:50 by jichompo         ###   ########.fr       */
+/*   Updated: 2024/06/29 23:55:35 by jchompoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_overflow(char *str)
+{
+	int	error;
+	int	i;
+
+	error = 0;
+	if (ft_strlen(str) > 11)
+		i = ft_atol(str, &error);
+	if (i == 0 && error == 1)
+		return (1);
+	return (0);
+}
 
 t_stack	*start_stack(int index)
 {

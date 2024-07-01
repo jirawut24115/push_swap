@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jichompo <jichompo@>                       +#+  +:+       +#+        */
+/*   By: jchompoo <jchompoo@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 23:16:35 by jichompo          #+#    #+#             */
-/*   Updated: 2024/06/23 22:14:04 by jichompo         ###   ########.fr       */
+/*   Updated: 2024/06/29 23:55:43 by jchompoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,6 @@ static void	refine_stack(t_stack *stack)
 	}
 	i = 0;
 	reassign(stack, temp);
-}
-
-int	check_overflow(char *str)
-{
-	int	error;
-
-	error = 0;
-	if (ft_strlen(str) > 11)
-		
-	return (error);
 }
 
 static t_stack	*init_stack(char **argv)
